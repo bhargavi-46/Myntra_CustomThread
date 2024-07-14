@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Try-On</title>
+  <link rel="stylesheet" href="ar.css">
+  <script src="https://cdn.jsdelivr.net/npm/@ar-js-org/ar.js@2.0.2/aframe/build/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ar-js-org/ar.js@2.0.2/aframe/build/aframe-ar.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- Myntra Navbar -->
+  <header>
+    <div class="logo_container">
+      <a href="index.html">
+        <img class="myntra_home" src="https://www.visa.com/images/merchantoffers/2022-05/1653640344835.myntra1.png" alt="Myntra Home">
+      </a>
+    </div>
+    <nav class="nav_bar">
+      <a href="#">Men</a>
+      <a href="#">Women</a>
+      <a href="#">Kids</a>
+      <a href="#">Home</a>
+      <a href="#">Beauty</a>
+      <a class="ar" href="ar.html">AR Tryon <sup>New</sup></a>
+      <a href="customthread.html">CustomThread <sup>New</sup></a>
+    </nav>
+    <div class="search_bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search for products, brands, and more">
+    </div>
+    <div class="action_bar">
+      <div class="profile"><i class="fas fa-user"></i> Profile</div>
+      <div class="wishlist"><i class="fas fa-heart"></i> Wishlist</div>
+      <div class="bag"><i class="fas fa-shopping-bag"></i> Bag</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro_section">
+      <section class="intro_section">
+        <h2>Try On Clothes from the Comfort of Your Home!</h2>
+        <p>Say goodbye to fitting room queues! Upload a picture and instantly see how our latest styles look on you. Adjust your measurements, select fabrics, and explore colors to find your perfect outfit.</p>
+      </section>
+
+    </section>
+
+    <section class="ar_tryon_section">
+      <div class="upload_container">
+        <label for="uploadFile" class="upload_label">
+          <i class="upload_icon fa-solid fa-upload"></i>
+          <span>Upload Your Picture</span>
+          <input type="file" id="uploadFile" accept="image/*" style="display: none;">
+        </label>
+      </div>
+
+      <div class="measurement_fields">
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" placeholder="Enter your height">
+
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+
+        <label for="chest">Chest Measurement (in cm):</label>
+        <input type="number" id="chest" placeholder="Enter your chest measurement">
+
+        <label for="waist">Waist Measurement (in cm):</label>
+        <input type="number" id="waist" placeholder="Enter your waist measurement">
+
+        <label for="hips">Hips Measurement (in cm):</label>
+        <input type="number" id="hips" placeholder="Enter your hips measurement">
+      </div>
+
+      <div class="fabric_color_section">
+        <label for="fabric">Choose Fabric:</label>
+        <select id="fabric">
+          <option value="cotton">Cotton</option>
+          <option value="linen">Linen</option>
+          <option value="wool">Wool</option>
+          <option value="silk">Silk</option>
+        </select>
+
+        <label for="color">Choose Color:</label>
+        <input type="color" id="color" value="#ffffff">
+      </div>
+
+      <button id="generatePreview">Generate Preview</button>
+
+      <div class="ar_preview">
+        <p>Upload a picture and click "Generate Preview" to see your clothes in AR!</p>
+        <div class="loading" style="display: none;"></div>
+      </div>
+
+      <div id="ar-container"></div>
+    </section>
+
+    <!-- New About Section -->
+    <section class="about_section">
+      <h2>About VirtualFit AR</h2>
+      <p>VirtualFit AR is your go-to solution for trying on clothes virtually. We use the latest AR technology to bring your fashion dreams to life. Upload your photo, enter your measurements, and see how different outfits look on you before you make a purchase. Our platform provides accurate fit recommendations and a seamless shopping experience, helping you find the perfect outfit with confidence.</p>
+    </section>
+
+    <!-- New Customer Reviews Section -->
+    <section class="reviews_section">
+      <h2>Customer Reviews</h2>
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>“The AR feature is amazing! I was able to see how the dress would look on me before buying it.”</p>
+        </div>
+        <div class="review">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>“A great tool for fashion enthusiasts. The measurements and AR try-on features are spot-on!”</p>
+        </div>
+        <div class="review">
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p>“I loved using VirtualFit AR to find my new wardrobe staples. Highly recommend this feature!”</p>
+        </div>
+        <!-- Add more reviews as needed -->
+      </div>
+    </section>
+
+    <!-- New FAQ Section -->
+    <section class="faq_section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq_item">
+        <h3>How do I upload my photo?</h3>
+        <p>Click on the "Upload Your Picture" button and select a photo from your device. Make sure the photo is clear and well-lit for the best AR experience.</p>
+      </div>
+      <div class="faq_item">
+        <h3>What measurements do I need to provide?</h3>
+        <p>You need to provide your height, weight, chest, waist, and hips measurements to get accurate fit recommendations for the clothes you try on.</p>
+      </div>
+      <div class="faq_item">
+        <h3>Can I try on different outfits in AR?</h3>
+        <p>Yes, once you upload your photo and enter your measurements, you can try on various outfits and see how they look on you in real-time.</p>
+      </div>
+      <div class="faq_item">
+        <h3>Is the AR try-on feature free?</h3>
+        <p>Yes, the AR try-on feature is available for free to all users. Enjoy trying on clothes virtually at no cost!</p>
+      </div>
+      <!-- Add more FAQs as needed -->
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2024 VirtualFit AR. All rights reserved.</p>
+  </footer>
+
+  <script src="ar.js"></script>
+</body>
+
+</html>
